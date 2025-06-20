@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megan's Daily Activity</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/garet');
+        
+        /* General Styles */
+        body {
+            font-family: 'Garet', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Navigation Bar */
+        .nav {
+            position: fixed; /* Fix the navbar to the top right */
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 10; /* Ensure it stays on top */
+        }
+
+        .nav a {
+            padding: 10px 20px;
+            border: 2px solid black;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav a:hover {
+            background-color: #f8c8dc;
+        }
+
+        .nav .active {
+            background-color: pink;
+        }
+
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 80px; /* Adjusted space to account for the fixed navbar */
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        #chart {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="nav">
+        <a href="home.html">HOME</a>
+        <a href="dailyactivity.html" class="active">DAILY ACTIVITY</a>
+        <a href="progress.html">PROGRESS</a>
+        <a href="gamification.html">GAMIFICATION</a>
+    </div>
+
+    <!-- Content Section -->
+    <div class="container">
+        <h1>Megan's Daily Activity</h1>
+        <h3>Megan's Interruptions: Volume vs. Time of Day</h3>
+        <div id="chart"></div>
+    </div>
+
+    <script>
+        var data = [{
+            x: ['10 AM', '10:26 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM'],
+            y: [82, 89, 90, 92, 88, 91, 87],
+            mode: 'markers',
+            marker: {
+                size: 10,
+                color: [94, 97, 99, 96, 95, 98, 94],
+                colorscale: 'Reds',
+                showscale: true,
+                colorbar: {
+                    title: 'Certainty Score'
+                }
+            },
+            text: [
+                'Decibel Level=82\nCertainty Score=94\nCalmed Down=true',
+                'Decibel Level=89\nCertainty Score=97\nCalmed Down=false',
+                'Decibel Level=90\nCertainty Score=99\nCalmed Down=true',
+                'Decibel Level=92\nCertainty Score=96\nCalmed Down=false',
+                'Decibel Level=88\nCertainty Score=95\nCalmed Down=true',
+                'Decibel Level=91\nCertainty Score=98\nCalmed Down=false',
+                'Decibel Level=87\nCertainty Score=94\nCalmed Down=true'
+            ],
+            hoverinfo: 'text'
+        }];
+
+        var layout = {
+            xaxis: { title: 'School Hours' },
+            yaxis: { title: 'Decibel Level (dB)' },
+            title: '',
+            margin: { t: 30 }
+        };
+
+        Plotly.newPlot('chart', data, layout);
+    </script>
+</body>
+</html>

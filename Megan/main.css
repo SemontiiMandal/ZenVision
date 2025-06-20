@@ -1,0 +1,114 @@
+/* Import Garet Font */
+@import url('https://fonts.cdnfonts.com/css/garet');
+
+/* General Styles */
+body {
+    font-family: 'Garet', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    position: relative;
+}
+
+/* Header (Logo & Brand Name) */
+.header {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    font-family: 'Garet', sans-serif;
+    white-space: nowrap;
+}
+
+/* Navigation Bar */
+.nav {
+    position: fixed;
+    top: 20px; /* Align with the top */
+    right: 20px; /* Move to the top-right */
+    display: flex;
+    gap: 15px; /* Space between items */
+   /*padding: 10px 15px; /* Reduced padding for a more compact navbar */
+    z-index: 999;
+}
+
+.nav a {
+    padding: 10px 20px; /* Increased padding to create more space around text */
+    border: 2px solid #000;
+    border-radius: 20px;  /* Less round than before */
+    background: white;
+    cursor: pointer;
+    font-size: 18px; /* Font size remains the same */
+    text-decoration: none;
+    font-family: 'Garet', sans-serif;
+    color: black;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav a:hover {
+    background-color: #F4C1D9; /* Soft pink */
+    /*transform: scale(1.05); /* Slight zoom effect */
+}
+
+.nav .active {
+    background-color: #F4A8B7; /* A more vibrant pink for active state */
+}
+
+
+/* Content */
+.content {
+    text-align: center;
+    margin-top: 250px;
+}
+
+.content h1 {
+    font-size: 36px;
+}
+
+/* Images */
+.images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.image {
+    position: absolute;
+}
+
+.image-bow {
+    top: 20%;
+    left: 5%;
+    width: 150px;
+}
+
+.image-heart {
+    bottom: 5%;
+    left: 5%;
+    width: 180px;
+}
+
+.image-star {
+    top: 10%;
+    right: 5%;
+    width: 200px;
+}
+
+.image-cat {
+    bottom: 0%;
+    right: 0%;
+    width: 290px;
+}

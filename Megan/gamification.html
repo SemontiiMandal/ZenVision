@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megan's Gamification</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/garet');
+        
+        /* General Styles */
+        body {
+            font-family: 'Garet', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Navigation Bar */
+        .nav {
+            position: fixed; /* Fix the navbar to the top right */
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 10; /* Ensure it stays on top */
+        }
+
+        .nav a {
+            padding: 10px 20px;
+            border: 2px solid black;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav a:hover {
+            background-color: #f8c8dc;
+        }
+
+        .nav .active {
+            background-color: pink;
+        }
+
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 80px; /* Adjusted space to account for the fixed navbar */
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        .gamification-box {
+            background-color: #f9f3f4;
+            padding: 20px;
+            border-radius: 15px;
+            width: 80%;
+            margin: auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        .gamification-box h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .gamification-box select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .stats {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .badge {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        .points {
+            font-size: 20px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="nav">
+        <a href="home.html">HOME</a>
+        <a href="dailyactivity.html">DAILY ACTIVITY</a>
+        <a href="progress.html">PROGRESS</a>
+        <a href="gamification.html" class="active">GAMIFICATION</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Megan's Gamification Zone</h1>
+        <div class="gamification-box">
+            <h2>Track Megan's Challenge Progress</h2>
+            <label for="datePicker">Select a Date:</label>
+            <select id="datePicker">
+                <option value="2025-03-13">2025-03-13</option>
+                <option value="2025-03-12">2025-03-12</option>
+                <option value="2025-03-11">2025-03-11</option>
+            </select>
+            <div class="stats" id="stats">
+                <p><strong>Date:</strong> <span id="date">2025-03-13</span></p>
+                <p><strong>Times Prompted:</strong> <span id="prompted">9</span></p>
+                <p><strong>Times Listened:</strong> <span id="listened">9</span></p>
+                <p><strong>Badge Earned:</strong> <span class="badge" id="badge">Champion</span></p>
+                <p><strong>Points Earned:</strong> <span class="points" id="points">100</span></p>
+                <p><strong>Total Score for this day:</strong> <span id="total">100</span> points</p>
+                <p>🎉 You completed the challenge! Keep it up!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript for Dynamic Stats -->
+    <script>
+        const data = {
+            "2025-03-13": { prompted: 9, listened: 9, badge: "Champion", points: 100 },
+            "2025-03-12": { prompted: 7, listened: 6, badge: "Achiever", points: 80 },
+            "2025-03-11": { prompted: 5, listened: 3, badge: "Beginner", points: 50 }
+        };
+
+        document.getElementById("datePicker").addEventListener("change", function() {
+            const selectedDate = this.value;
+            const stats = data[selectedDate];
+            document.getElementById("date").innerText = selectedDate;
+            document.getElementById("prompted").innerText = stats.prompted;
+            document.getElementById("listened").innerText = stats.listened;
+            document.getElementById("badge").innerText = stats.badge;
+            document.getElementById("points").innerText = stats.points;
+            document.getElementById("total").innerText = stats.points;
+        });
+    </script>
+</body>
+</html>
